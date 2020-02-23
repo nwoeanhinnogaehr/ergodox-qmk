@@ -37,7 +37,7 @@ enum custom_keycodes {
         KC_TRNS,      KC_TRNS,      KC_TRNS,KC_TRNS,KC_TRNS,\
                                                KC_TRNS,         KC_TRNS,\
                                                                 KC_TRNS,\
-                                               KC_TRNS,KC_TRNS,KC_TRNS,\
+                                               KC_TRNS,KC_BSPC,KC_TRNS,\
 \
         KC_TRNS,      KC_NO,  KC_NO, KC_NO,  KC_NO,  KC_NO,            KC_TRNS,\
         KC_TRNS,        KC_TRNS,   KC_TRNS,  KC_TRNS,   KC_TRNS,   KC_TRNS,             KC_TRNS,\
@@ -46,7 +46,7 @@ enum custom_keycodes {
                               KC_TRNS,KC_TRNS, KC_TRNS, KC_TRNS,            KC_TRNS,\
         KC_TRNS,   KC_TRNS,\
         KC_TRNS,\
-        KC_TRNS,KC_TRNS,KC_TRNS)
+        KC_TRNS,KC_ENT,KC_TRNS)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [BASE] = LAYOUT_ergodox( 
@@ -54,7 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_GRV,        KC_1,         KC_2,   KC_3,   KC_4,   KC_5,   TEX_LEQN,
         KC_TAB,        KC_Q,         KC_W,   KC_E,   KC_R,   KC_T,   KC_DLR,
         KC_ESC,        KC_A,         KC_S,   KC_D,   KC_F,   KC_G,
-        BSFT,          KC_Z,         KC_X,   KC_C,   KC_V,   KC_B,   KC_EQL,
+        KC_NO,          KC_Z,         KC_X,   KC_C,   KC_V,   KC_B,   KC_EQL,
         KC_LCTRL,      KC_LGUI,      KC_LALT,KC_LEFT,KC_RGHT,
                                                KC_AMPR,         KC_PLUS,
                                                                 KC_PERC,
