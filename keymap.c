@@ -12,7 +12,6 @@ enum custom_keycodes {
     PLACEHOLDER = SAFE_RANGE, // can always be here
     EPRM,
     VRSN,
-    RGB_SLD,
     SAVE,
     TEX_NEQ,
     TEX_LEQ,
@@ -27,26 +26,24 @@ enum custom_keycodes {
     TEX_DOT
 };
 
-#define BSFT LM(BASESHIFT, MOD_LSFT)
-
 #define DEFN_BASESHIFT LAYOUT_ergodox(\
-        KC_TRNS,        KC_NO,        KC_TRNS,   KC_NO,  KC_NO,  KC_NO,  KC_TRNS,\
-        KC_TRNS,        KC_TRNS,         KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,\
-        KC_TRNS,        KC_TRNS,         KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,\
-        KC_TRNS,       KC_TRNS,         KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   TEX_NEQ,\
-        KC_TRNS,      KC_TRNS,      KC_TRNS,KC_TRNS,KC_TRNS,\
-                                               KC_TRNS,         KC_TRNS,\
-                                                                KC_TRNS,\
-                                               KC_TRNS,KC_BSPC,KC_TRNS,\
-\
-        KC_TRNS,      KC_NO,  KC_NO, KC_NO,  KC_NO,  KC_NO,            KC_TRNS,\
-        KC_TRNS,        KC_TRNS,   KC_TRNS,  KC_TRNS,   KC_TRNS,   KC_TRNS,             KC_TRNS,\
-                       KC_TRNS,   KC_TRNS,  KC_TRNS,   KC_TRNS,   KC_TRNS,          KC_TRNS,\
-        KC_TRNS,       KC_TRNS,   KC_TRNS,  KC_TRNS,KC_TRNS, KC_TRNS,          KC_TRNS,\
-                              KC_TRNS,KC_TRNS, KC_TRNS, KC_TRNS,            KC_TRNS,\
-        KC_TRNS,   KC_TRNS,\
-        KC_TRNS,\
-        KC_TRNS,KC_ENT,KC_TRNS)
+        KC_GRV,        KC_1,         KC_2,   KC_3,   KC_4,   KC_5,   TEX_LEQN,\
+        KC_TAB,        KC_Q,         KC_W,   KC_E,   KC_R,   KC_T,   KC_DLR,\
+        KC_ESC,        KC_A,         KC_S,   KC_D,   KC_F,   KC_G,\
+        KC_LSFT,       KC_Z,         KC_X,   KC_C,   KC_V,   KC_B,   KC_EQL,\
+        KC_LCTRL,      KC_LGUI,      KC_LALT,KC_LEFT,KC_RGHT,\
+                                               KC_AMPR,         KC_AT,\
+                                                                KC_EXLM,\
+                                               LT(SYMB,KC_BSLS),KC_BSPC,KC_MINS,\
+                                               \
+        TEX_REQN,      KC_6,   KC_7,  KC_8,   KC_9,   KC_0,             S(KC_INS),\
+        KC_DLR,        KC_Y,   KC_U,  KC_I,   KC_O,   KC_P,             KC_BSLS,\
+                       KC_H,   KC_J,  KC_K,   KC_L,   KC_SCLN,          KC_QUOT,\
+        KC_CIRC,       KC_N,   KC_M,  KC_COMM,KC_DOT, KC_SLSH,          KC_ASTR,\
+                              KC_DOWN,KC_UP, KC_PLUS, KC_CIRC,          KC_HASH,\
+        KC_PLUS,   KC_PIPE,\
+        KC_PERC,\
+        KC_UNDS,KC_ENT, KC_SPC)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [BASE] = LAYOUT_ergodox( 
@@ -54,40 +51,40 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_GRV,        KC_1,         KC_2,   KC_3,   KC_4,   KC_5,   TEX_LEQN,
         KC_TAB,        KC_Q,         KC_W,   KC_E,   KC_R,   KC_T,   KC_DLR,
         KC_ESC,        KC_A,         KC_S,   KC_D,   KC_F,   KC_G,
-        KC_NO,          KC_Z,         KC_X,   KC_C,   KC_V,   KC_B,   KC_EQL,
+        MO(BASESHIFT),       KC_Z,         KC_X,   KC_C,   KC_V,   KC_B,   KC_EQL,
         KC_LCTRL,      KC_LGUI,      KC_LALT,KC_LEFT,KC_RGHT,
-                                               KC_AMPR,         KC_PLUS,
-                                                                KC_PERC,
-                                               LT(SYMB,KC_BSLS),LT(BASESHIFT,KC_BSPC),KC_MINS,
+                                               KC_AMPR,         KC_AT,
+                                                                KC_EXLM,
+                                               LT(SYMB,KC_BSLS),KC_BSPC,KC_MINS,
         // right hand
         TEX_REQN,      KC_6,   KC_7,  KC_8,   KC_9,   KC_0,             S(KC_INS),
         KC_DLR,        KC_Y,   KC_U,  KC_I,   KC_O,   KC_P,             KC_BSLS,
                        KC_H,   KC_J,  KC_K,   KC_L,   KC_SCLN,          KC_QUOT,
-        KC_BSLS,       KC_N,   KC_M,  KC_COMM,KC_DOT, KC_SLSH,          KC_ASTR,
-                              KC_DOWN,KC_UP, KC_DEL, KC_INS,            KC_TILD,
-        KC_PLUS,   KC_CIRC,
-        KC_EXLM,
-        KC_UNDS,LT(BASESHIFT,KC_ENT), KC_SPC
+        KC_CIRC,       KC_N,   KC_M,  KC_COMM,KC_DOT, KC_SLSH,          KC_ASTR,
+                              KC_DOWN,KC_UP, KC_PLUS, KC_CIRC,          KC_HASH,
+        KC_PLUS,   KC_PIPE,
+        KC_PERC,
+        KC_UNDS,KC_ENT, KC_SPC
 ),
 [SYMB] = LAYOUT_ergodox(
        // left hand
        VRSN,   KC_F1,  KC_F2,  KC_F3,  KC_F4,  KC_F5,  TEX_LSET,
        KC_TRNS,KC_EXLM,KC_PERC,KC_NO,  KC_EXLM,KC_AMPR,KC_TRNS,
-       KC_TRNS,KC_HASH,KC_HASH,KC_DLR,  KC_BSLS,KC_PIPE,
-       LM(BASESHIFT2,MOD_LSFT),KC_PERC,KC_TILD,KC_TILD,KC_PERC,KC_CIRC,TEX_NEQ,
+       KC_TRNS,KC_AT,KC_HASH,KC_DLR,  KC_BSLS,KC_PIPE,
+       MO(BASESHIFT2),KC_PERC,KC_TILD,KC_TILD,KC_PERC,KC_CIRC,TEX_NEQ,
           EPRM,KC_TRNS,KC_TRNS,TEX_LEQ,TEX_GEQ,
                                        KC_TRNS,KC_TRNS,
                                                KC_TRNS,
-                               KC_TRNS,KC_TRNS,KC_PLUS,
+                               KC_TRNS,KC_BSPC,KC_PLUS,
        // right hand
        TEX_RSET, KC_F6,   KC_F7,    KC_F8,   KC_F9,   KC_F10,  KC_F11,
        KC_TRNS, KC_LPRN, KC_RPRN,  KC_ASTR, KC_AMPR, KC_F12, KC_PIPE,
                 KC_LCBR, KC_RCBR,  KC_PLUS, KC_MINS, KC_TRNS, KC_TRNS,
-       KC_TRNS, KC_LBRC, KC_RBRC,  KC_LABK, KC_RABK, KC_TRNS, KC_TRNS,
-                         KC_WBAK,  KC_WFWD, KC_TRNS, KC_TRNS, KC_TRNS,
-       KC_TRNS, KC_ASTR,
+       KC_CIRC, KC_LBRC, KC_RBRC,  KC_LABK, KC_RABK, KC_TRNS, KC_TRNS,
+                         KC_WBAK,  KC_WFWD, KC_DEL, KC_INS, KC_TRNS,
+       KC_TRNS, KC_TRNS,
        KC_TRNS,
-       TEX_IN, KC_TRNS, KC_TRNS
+       TEX_IN, KC_ENT, KC_TRNS
 ),
 [BASESHIFT] = DEFN_BASESHIFT,
 [BASESHIFT2] = DEFN_BASESHIFT,
@@ -116,6 +113,31 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  if (((keycode >= KC_A &&
+      keycode <= KC_Z) ||
+      keycode == KC_BSLS ||
+      keycode == KC_ESC ||
+      keycode == KC_ENT ||
+      keycode == KC_LEFT ||
+      keycode == KC_RIGHT ||
+      keycode == KC_UP ||
+      keycode == KC_DOWN ||
+      keycode == KC_SCLN ||
+      keycode == KC_SLSH ||
+      keycode == KC_GRV ||
+      keycode == KC_DOT ||
+      keycode == KC_COMM ||
+      keycode == KC_GRV ||
+      keycode == KC_QUOT ||
+      keycode == KC_TAB
+      ) && (IS_LAYER_ON(BASESHIFT) || IS_LAYER_ON(BASESHIFT2))) {
+    if (record->event.pressed) {
+      register_code(KC_LSFT);
+      tap_code(keycode);
+      unregister_code(KC_LSFT);
+    }
+    return false;
+  }
   switch (keycode) {
     // dynamically generate these.
     case EPRM:
@@ -127,14 +149,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case VRSN:
       if (record->event.pressed) {
         SEND_STRING (QMK_KEYBOARD "/" QMK_KEYMAP " @ " QMK_VERSION);
-      }
-      return false;
-      break;
-    case RGB_SLD:
-      if (record->event.pressed) {
-        #ifdef RGBLIGHT_ENABLE
-          rgblight_mode(1);
-        #endif
       }
       return false;
       break;
@@ -198,14 +212,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 // Runs just one time when the keyboard initializes.
 void matrix_init_user(void) {
-#ifdef RGBLIGHT_COLOR_LAYER_0
-  rgblight_setrgb(RGBLIGHT_COLOR_LAYER_0);
-#endif
 };
 
 // Runs constantly in the background, in a loop.
 void matrix_scan_user(void) {
-
 };
 
 // Runs whenever there is a layer state change.
@@ -218,64 +228,32 @@ uint32_t layer_state_set_user(uint32_t state) {
   uint8_t layer = biton32(state);
   switch (layer) {
       case 0:
-        unregister_code(KC_LSFT);
-        #ifdef RGBLIGHT_COLOR_LAYER_0
-          rgblight_setrgb(RGBLIGHT_COLOR_LAYER_0);
-        #else
-        #ifdef RGBLIGHT_ENABLE
-          rgblight_init();
-        #endif
-        #endif
         break;
       case 1:
-        register_code(KC_LSFT);
         ergodox_right_led_1_on();
-        #ifdef RGBLIGHT_COLOR_LAYER_1
-          rgblight_setrgb(RGBLIGHT_COLOR_LAYER_1);
-        #endif
         break;
       case 2:
-        unregister_code(KC_LSFT);
         ergodox_right_led_2_on();
-        #ifdef RGBLIGHT_COLOR_LAYER_2
-          rgblight_setrgb(RGBLIGHT_COLOR_LAYER_2);
-        #endif
         break;
       case 3:
-        register_code(KC_LSFT);
         ergodox_right_led_3_on();
-        #ifdef RGBLIGHT_COLOR_LAYER_3
-          rgblight_setrgb(RGBLIGHT_COLOR_LAYER_3);
-        #endif
         break;
       case 4:
         ergodox_right_led_1_on();
         ergodox_right_led_2_on();
-        #ifdef RGBLIGHT_COLOR_LAYER_4
-          rgblight_setrgb(RGBLIGHT_COLOR_LAYER_4);
-        #endif
         break;
       case 5:
         ergodox_right_led_1_on();
         ergodox_right_led_3_on();
-        #ifdef RGBLIGHT_COLOR_LAYER_5
-          rgblight_setrgb(RGBLIGHT_COLOR_LAYER_5);
-        #endif
         break;
       case 6:
         ergodox_right_led_2_on();
         ergodox_right_led_3_on();
-        #ifdef RGBLIGHT_COLOR_LAYER_6
-          rgblight_setrgb(RGBLIGHT_COLOR_LAYER_6);
-        #endif
         break;
       case 7:
         ergodox_right_led_1_on();
         ergodox_right_led_2_on();
         ergodox_right_led_3_on();
-        #ifdef RGBLIGHT_COLOR_LAYER_7
-          rgblight_setrgb(RGBLIGHT_COLOR_LAYER_6);
-        #endif
         break;
       default:
         break;
